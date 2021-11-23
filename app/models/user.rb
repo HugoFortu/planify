@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tasks
+
+
+  validates :pseudo, presence: true, uniqueness: true
+  validates :telephone, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :color, presence: true, uniqueness: true
 end
