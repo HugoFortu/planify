@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_151872) do
+ActiveRecord::Schema.define(version: 2021_12_06_105828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,37 @@ ActiveRecord::Schema.define(version: 2021_11_23_151872) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "elements", force: :cascade do |t|
+    t.string "name"
+    t.boolean "checked"
+    t.integer "quantity"
+    t.bigint "list_id", null: false
+    t.bigint "task_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["list_id"], name: "index_elements_on_list_id"
+    t.index ["task_id"], name: "index_elements_on_task_id"
+  end
+
+  create_table "ideas", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.boolean "project"
+    t.string "project_type"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_ideas_on_user_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -50,7 +81,16 @@ ActiveRecord::Schema.define(version: 2021_11_23_151872) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "type_id"
+    t.index ["type_id"], name: "index_tasks_on_type_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,5 +110,10 @@ ActiveRecord::Schema.define(version: 2021_11_23_151872) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "elements", "lists"
+  add_foreign_key "elements", "tasks"
+  add_foreign_key "ideas", "users"
+  add_foreign_key "lists", "users"
+  add_foreign_key "tasks", "types"
   add_foreign_key "tasks", "users"
 end
