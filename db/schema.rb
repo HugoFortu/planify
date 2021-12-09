@@ -48,11 +48,9 @@ ActiveRecord::Schema.define(version: 2021_12_06_105828) do
     t.boolean "checked"
     t.integer "quantity"
     t.bigint "list_id", null: false
-    t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["list_id"], name: "index_elements_on_list_id"
-    t.index ["task_id"], name: "index_elements_on_task_id"
   end
 
   create_table "ideas", force: :cascade do |t|
@@ -111,7 +109,6 @@ ActiveRecord::Schema.define(version: 2021_12_06_105828) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "elements", "lists"
-  add_foreign_key "elements", "tasks"
   add_foreign_key "ideas", "users"
   add_foreign_key "lists", "users"
   add_foreign_key "tasks", "types"
