@@ -9,31 +9,31 @@
       <ul class="space-y-8 pt-10">
         <li class="flex space-x-4 items-center active:textColor-white-700 ">
           <ion-icon name="grid-outline"></ion-icon>
-          <a id="nav" href="">Accueil</a>
+          <%= link_to "Accueil", root_path %>
         </li>
         <li class="flex space-x-4 items-center">
           <ion-icon name="list-outline"></ion-icon>
-          <a id="nav" href="">Tâches</a>
+          <%= link_to "Tâches", tasks_path %>
         </li>
         <li class="flex space-x-4 items-center">
           <ion-icon name="checkbox-outline"></ion-icon>
-          <a id="nav" href="">Listes</a>
+          <%= link_to "Listes", lists_path %>
         </li>
         <li class="flex space-x-4 items-center">
           <ion-icon name="bulb-outline"></ion-icon>
-          <a id="nav" href="">Idées</a>
+          <%= link_to "Idées", ideas_path %>
         </li>
         <li class="flex space-x-4 items-center">
           <ion-icon name="calendar-outline"></ion-icon>
-          <a id="nav" href="">Planning</a>
+          <%= link_to "Planning", root_path %>
         </li>
         <li class="flex space-x-4 items-center">
           <ion-icon name="chatbubbles-outline"></ion-icon>
-          <a id="nav" href="">Messages</a>
+          <%= link_to "Messages", root_path %>
         </li>
         <li class="flex space-x-4 items-center">
           <ion-icon name="settings-outline"></ion-icon>
-          <a id="nav" href="">Paramètres</a>
+          <%= link_to "Paramètres", root_path %>
         </li>
       </ul>
     </div>

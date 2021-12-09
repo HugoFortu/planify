@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :tasks
-  resources :lists
+  resources :lists do
+    resources :elements, only: [:new, :create, :edit, :update, :destroy]
+  end
   resources :ideas
-  resources :elements
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
