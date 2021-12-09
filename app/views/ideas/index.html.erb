@@ -1,0 +1,20 @@
+<h1>Nos idées</h1>
+
+  <tbody>
+    <% @ideas.each do |idea| %>
+      <tr>
+        <td><%= idea.title %></td>
+        <td><%= idea.content %></td>
+        <% if idea.project %>
+        <td><%= idea.user_id %></td>
+        <% end %>
+        <td><%= link_to 'Show', idea %></td>
+        <td><%= link_to 'Edit', edit_idea_path(task) %></td>
+        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Nouvelle idée ?', new_idea_path %>
