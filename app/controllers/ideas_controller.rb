@@ -32,6 +32,10 @@ class IdeasController < ApplicationController
     end
   end
 
+  def destroy
+    @idea.destroy
+    redirect_to ideas_path
+  end
 
   private
 
@@ -42,5 +46,4 @@ class IdeasController < ApplicationController
     def idea_params
       params.require(:idea).permit(:title, :content, :project, :project_type, :user_id)
     end
-end
 end

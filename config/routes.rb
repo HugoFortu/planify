@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: [:show, :edit, :update, :new, :create]
   root to: 'pages#home'
 
   resources :tasks

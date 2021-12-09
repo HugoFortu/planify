@@ -1,13 +1,12 @@
 class ListsController < ApplicationController
   before_action :set_list, only: %i[ show edit update destroy ]
 
-  # skip_before_action :authenticate_user!, only: [:show, :index]
-
   def index
     @lists = List.all
   end
 
   def show
+    @elements = Element.find_by(list_id: params[:id])
   end
 
   def edit
@@ -32,6 +31,10 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    @list.destroy
+    redirect_to lists_path
+  end
 
   private
 

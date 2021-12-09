@@ -7,8 +7,8 @@ class User < ApplicationRecord
   has_many :tasks
 
 
-  validates :pseudo, presence: true, uniqueness: true
-  validates :telephone, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
-  validates :color, presence: true, uniqueness: true
+  # validates :pseudo, presence: true, uniqueness: true
+  # validates :telephone, presence: true, uniqueness: true
+  # validates :email, presence: true, uniqueness: true
+  # validates :color, presence: true, uniqueness: true
 end

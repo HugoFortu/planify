@@ -1,17 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tasks</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Limited date</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h1>Nos tâches</h1>
 
   <tbody>
     <% @tasks.each do |task| %>
@@ -30,4 +19,4 @@
 
 <br>
 
-<%= link_to 'New Task', new_task_path %>
+<%= link_to 'Ajouter une tâche', new_task_path %>
