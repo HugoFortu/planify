@@ -1,33 +1,34 @@
-require 'faker'
+
 
 puts "Destruction des anciennes seeds..."
 
-List.destroy_all
-Element.destroy_all
-Type.destroy_all
-Task.destroy_all
-Idea.destroy_all
+Element.delete_all
+List.delete_all
+Task.delete_all
+Type.delete_all
+Idea.delete_all
 
 puts "Creation des nouvelles seeds..."
 
-liste1 = List.create(title: "courses alimentaires")
-liste2 = List.create(title: "inventaire vacances")
+admin = User.find_by(email: "hfortunier@gmail.com")
+
+liste1 = List.create(title: "courses alimentaires", user: admin)
+liste2 = List.create(title: "inventaire vacances", user: admin)
 
 15.times do
   element_courses = Element.create(
     name: Faker::Food.ingredient,
-    quantity: [1..12].sample,
-    checked: false,
-    list_id: liste1.id
+    quantity: (1..12).to_a.sample,
+    list: liste1
     )
 end
+
 
 12.times do
   element_courses = Element.create(
     name: Faker::House.furniture,
-    quantity: [1..2].sample,
-    checked: false,
-    list_id: liste2.id
+    quantity: (1..3).to_a.sample,
+    list: liste2
     )
 end
 
@@ -44,13 +45,16 @@ task1 = Task.create(
   title: "Laver le sol",
   content:"Faire attention au spécial parquet",
   limited_date: Faker::Date.forward(days: 23),
-  type_id: type1.id
+  type: type1,
+  user: admin
 )
+
 task2 = Task.create(
   title: "Acheter cadeau pour Marion",
   content:"Soirée chez Marion et Alex, peut être quelquechose en rapport avec le cheval...",
   limited_date: Faker::Date.forward(days: 23),
-  type_id: type2.id
+  type: type2,
+  user: admin
 )
 
 idea1 = Idea.create(
@@ -58,15 +62,17 @@ idea1 = Idea.create(
   content: "Il va falloir y réfléchir....",
   project: true,
   project_type: "projet à long terme",
+  user: admin
 )
 
 idea2 = Idea.create(
   title: "Regarder le reportage intel",
   content: "sur arte",
   project: false,
+  user: admin
 )
 
-
+puts "Les seeds sont faites !"
 
 
 

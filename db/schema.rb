@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_12_06_105828) do
 
   create_table "elements", force: :cascade do |t|
     t.string "name"
-    t.boolean "checked"
+    t.boolean "checked", default: false
     t.integer "quantity"
     t.bigint "list_id", null: false
     t.datetime "created_at", precision: 6, null: false
