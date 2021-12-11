@@ -6,7 +6,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @elements = Element.find_by(list_id: params[:id])
+    @elements = Element.where(list_id: params[:id])
   end
 
   def edit
