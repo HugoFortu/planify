@@ -1,14 +1,16 @@
-<h1>Nos listes</h1>
+<h1 class="text-xl font-medium">Nos listes</h1>
 
   <tbody>
     <% @lists.each do |list| %>
       <tr>
         <td><%= list.title %></td>
 
-        <td><%= link_to 'Show', list %></td>
-        <td><%= link_to 'Edit', edit_list_path(list) %></td>
-        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to 'Voir la liste', list %></td>
+        <%= link_to(content_tag(:i, nil, class: 'far fa-edit'), edit_list_path(list)) %>
+        <%= link_to list_path(list), method: :delete, data: { confirm: "Êtes-vous sûr?" } do %>
+          <i class="far fa-trash-alt destroy_list"></i>
+        <% end %>
+    </tr>
     <% end %>
   </tbody>
 </table>

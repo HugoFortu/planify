@@ -1,16 +1,17 @@
 #checklist {
-  --background: #ffffff;
+
   --text: #414856;
   --check: #4F29F0;
   --disabled: #C3C8DE;
   --width: 400px;
+  --height: 40px;
   --border-radius: 10px;
-  background: var(--background);
+
   width: var(--width);
   height: var(--height);
   border-radius: var(--border-radius);
   position: relative;
-  box-shadow: 0 10px 30px rgba(#414856, 0.05);
+
   padding: 30px 45px;
   display: grid;
   grid-template-columns: 30px auto;
@@ -19,8 +20,8 @@
     position: relative;
     cursor: pointer;
     display: grid;
-    align-items: center;
     width: fit-content;
+    align-items: center;
     transition: color .3s ease;
     &::before,
     &::after {
@@ -64,6 +65,7 @@
       top: auto;
       background: var(--check);
       border-radius: 2px;
+      align-items: center;
     }
     &::before {
       width: 0px;
@@ -175,3 +177,6 @@
   }
 }
 
+.container-list {
+  height: 80vh;
+}

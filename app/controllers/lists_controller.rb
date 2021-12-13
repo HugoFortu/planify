@@ -7,6 +7,7 @@ class ListsController < ApplicationController
 
   def show
     @elements = Element.where(list_id: params[:id])
+    @element = Element.new
   end
 
   def edit
@@ -25,7 +26,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user_id = current_user.id
     if @list.save
-      redirect_to lists_path
+      redirect_to list_path(@list)
     else
       render :new
     end
