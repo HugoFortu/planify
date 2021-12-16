@@ -1,7 +1,11 @@
 <div class=" rounded-md h-screen flex-col justify-between">
   <div class="bg-color h-full">
     <div class="flex  justify-center py-10 pr-4">
-      <div class="pl-2">
+      <div class="pl-2 flex">
+        <% if current_user.avatar.nil?%>
+        <% else %>
+          <%= image_tag current_user.avatar , class: "avatar"%>
+        <% end %>
         <p id="titlenav" class="text-3xl align-middle font-bold ">Planify</h1>
       </div>
     </div>

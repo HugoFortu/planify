@@ -1,8 +1,10 @@
-<h1 class="text-xl font-medium">Nos listes</h1>
+<div class=" pb-6 mx-auto">
+  <h1 class="text-xl font-medium text-center">Nos listes :</h1>
+</div>
 
-  <tbody>
+  <ul>
     <% @lists.each do |list| %>
-      <tr>
+      <li>
         <td><%= list.title %></td>
 
         <td><%= link_to 'Voir la liste', list %></td>
@@ -10,10 +12,10 @@
         <%= link_to list_path(list), method: :delete, data: { confirm: "Êtes-vous sûr?" } do %>
           <i class="far fa-trash-alt destroy_list"></i>
         <% end %>
-    </tr>
+    </li>
     <% end %>
-  </tbody>
-</table>
+  </ul>
+
 
 
 <%= link_to 'Ajouter une liste', new_list_path %>
