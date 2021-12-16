@@ -1,0 +1,8 @@
+<div class="mx-auto py-6 ">
+  <% @elements.each do |element| %>
+    <div id= "checklist" data-list-target="element" data-action='click->list#updateElement' class="active">
+      <input id="<%= element.id %>" type="checkbox" name="r" value="<%= element.id %> " class="check" >
+      <label id="<%= element.id%>" for="<%= element.id%>" ><%= element.quantity %>        <%= element.name %></label>
+    </div>
+  <% end %>
+</div>

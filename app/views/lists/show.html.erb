@@ -2,15 +2,11 @@
   <div class=" py-6 mx-auto">
     <h1 class="text-xl font-medium text-center"><%= @list.title %></h1>
   </div>
-  <div class="flex bg-white rounded-xl container-list ">
-    <div class="mx-auto " id="checklist">
-      <% @elements.each_with_index do |element, i| %>
-      <input id="<%= i %>" type="checkbox" name="r" value="1">
-      <label for="<%= i %>"><%= element.quantity %>        <%= element.name %></label>
-      <% end %>
-    </div>
+  <div class="flex bg-white rounded-xl container-list" data-controller="list" >
+      <%= render "checklist", list: @list, element: @element %>
     <div class="mx-auto my-auto">
       <%= render "elements/new", list: @list, element: @element %>
+      <br>
       <%= link_to 'Retour', lists_path %>
     </div>
   </div>

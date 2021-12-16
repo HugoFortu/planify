@@ -11,8 +11,6 @@
   height: var(--height);
   border-radius: var(--border-radius);
   position: relative;
-
-  padding: 30px 45px;
   display: grid;
   grid-template-columns: 30px auto;
   label {
@@ -122,61 +120,58 @@
 @keyframes check-01 {
   0% {
     width: 4px;
-    top: auto;
+    top: 18px;
     transform: rotate(0);
   }
   50% {
     width: 0px;
-    top: auto;
+    top: 18px;
     transform: rotate(0);
   }
   51% {
     width: 0px;
-    top: 8px;
+    top: 18px;
     transform: rotate(45deg);
   }
   100% {
     width: 5px;
-    top: 8px;
+    top: 18px;
     transform: rotate(45deg);
   }
 }
 @keyframes check-02 {
   0% {
     width: 4px;
-    top: auto;
+    top: 18px;
     transform: rotate(0);
   }
   50% {
     width: 0px;
-    top: auto;
+    top: 18px;
     transform: rotate(0);
   }
   51% {
     width: 0px;
-    top: 8px;
+    top: 18px;
     transform: rotate(-45deg);
   }
   100% {
     width: 10px;
-    top: 8px;
+    top: 18px;
     transform: rotate(-45deg);
   }
 }
 @keyframes firework {
   0% {
     opacity: 1;
-    box-shadow: 0 0 0 -2px #4F29F0, 0 0 0 -2px #4F29F0, 0 0 0 -2px #4F29F0, 0 0 0 -2px #4F29F0, 0 0 0 -2px #4F29F0, 0 0 0 -2px #4F29F0;
+    box-shadow: 0 8 0 -2px #4F29F0, 0 8 0 -2px #4F29F0, 0 8 0 -2px #4F29F0, 0 8 0 -2px #4F29F0, 0 8 0 -2px #4F29F0, 0 8 0 -2px #4F29F0;
   }
   30% {
     opacity: 1;
   }
   100% {
     opacity: 0;
-    box-shadow: 0 -15px 0 0px #4F29F0, 14px -8px 0 0px #4F29F0, 14px 8px 0 0px #4F29F0, 0 15px 0 0px #4F29F0, -14px 8px 0 0px #4F29F0, -14px -8px 0 0px #4F29F0;
+    box-shadow: 0 -5px 0 0px #4F29F0, 14px 2px 0 0px #4F29F0, 14px 18px 0 0px #4F29F0, 0 25px 0 0px #4F29F0, -14px 18px 0 0px #4F29F0, -14px 2px 0 0px #4F29F0;
   }
 }
 
-.container-list {
-  height: 80vh;
-}

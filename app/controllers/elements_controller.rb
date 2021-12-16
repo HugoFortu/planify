@@ -16,9 +16,21 @@ class ElementsController < ApplicationController
   end
 
   def destroy
-    @element = element.find(params[:id])
+    @element = Element.find(params[:id])
     @element.destroy
     redirect_to list_path(@element.list)
+  end
+
+  def update
+    binding.pry
+    @element = Element.find(params[])
+    @element.update(checked: params[:checked])
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'candidates/candidates_table', locals: { element: @element }, formats: [:html] }
+    end
+
   end
 
   private

@@ -8,6 +8,7 @@ class ListsController < ApplicationController
   def show
     @elements = Element.where(list_id: params[:id])
     @element = Element.new
+
   end
 
   def edit
