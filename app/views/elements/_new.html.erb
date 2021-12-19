@@ -1,6 +1,6 @@
 <ion-icon name="add-outline"></ion-icon>
 <%= simple_form_for [list, element] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :quantity %>
-  <%= f.button :submit, class: "btn btn-primary" %>
+  <%= f.input :name, label: "Nom" %>
+  <%= f.input :quantity, label: "Quantité" %>
+  <%= f.button :submit, 'Ajouter' %>
 <% end %>
