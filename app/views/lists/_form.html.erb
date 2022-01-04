@@ -2,11 +2,11 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="form-inputs mx-40">
     <%= f.input :title, label: 'Titre'  %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, 'Ajouter'  %>
+  <div class="form-actions mx-40 text-right mb-20">
+    <%= f.button :submit, 'Valider'  %>
   </div>
 <% end %>

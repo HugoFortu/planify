@@ -6,12 +6,12 @@
         <% else %>
           <%= image_tag current_user.avatar , class: "avatar"%>
         <% end %>
-        <p id="titlenav" class="text-3xl align-middle font-bold ">Planify</h1>
+        <p id="titlenav" class="text-3xl align-middle font-bold ml-2">Planify</h1>
       </div>
     </div>
     <div class="pl-8">
-      <ul class="space-y-8 pt-10">
-        <li class="flex space-x-4 items-center active:textColor-white-700 ">
+      <ul class="space-y-8 pt-10 px-4">
+        <li class="flex space-x-4 items-center active:textColor-white-700">
           <ion-icon name="grid-outline"></ion-icon>
           <%= link_to "Accueil", root_path, id: "nav" %>
         </li>

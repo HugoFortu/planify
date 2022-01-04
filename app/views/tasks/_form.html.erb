@@ -3,14 +3,14 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="form-inputs mx-40">
     <%= f.input :title, label: 'Titre' %>
     <%= f.input :content, label: 'Description' %>
     <%= f.input :limited_date, label: 'Date limite' %>
     <%= f.association :type, label: 'Type de tâche' %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, 'Ajouter' %>
+  <div class="form-actions text-right mx-40 mb-20">
+    <%= f.button :submit, 'Valider' %>
   </div>
 <% end %>
