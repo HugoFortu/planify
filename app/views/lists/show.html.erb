@@ -2,7 +2,7 @@
   <div class=" pb-6 mx-auto">
     <h1 class="text-xl font-medium text-center"><%= @list.title %></h1>
   </div>
-  <div class="flex bg-white rounded-xl container-list" data-controller="list" >
+  <div class="flex bg-white rounded-xl container-list mx-40" data-controller="list" >
       <%= render "checklist", list: @list, element: @element %>
     <div class="mx-auto my-auto">
       <%= render "elements/new", list: @list, element: @element %>

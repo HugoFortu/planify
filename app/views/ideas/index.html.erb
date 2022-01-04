@@ -2,21 +2,23 @@
   <h1 class="text-xl font-medium text-center">Les idées à se rappeler :</h1>
 </div>
 
-  <ul>
-     <% @ideas.each do |idea| %>
-     <li>
-        <td><%= idea.title %></td>
-        <td><%= idea.content %></td>
-        <% if idea.project == true %>
-        <td><%= idea.project_type %></td>
-        <% end %>
-        <!-- <td><%= link_to 'Détails', idea %></td> -->
-        <%= link_to(content_tag(:i, nil, class: 'far fa-edit'), edit_idea_path(idea)) %>
-        <%= link_to idea_path(idea), method: :delete, data: { confirm: "Êtes-vous sûr?" } do %>
-          <i class="far fa-trash-alt destroy_idea"></i>
-        <% end %></li>
-    <% end %>
-
-  </ul>
-
-<%= link_to 'Nouvelle idée ?', new_idea_path %>
+<% @ideas.each do |idea| %>
+  <div class="flex bg-white py-3 px-6 mx-40 rounded shadow my-4">
+    <div class=" flex-auto pr-16">
+      <h1 class="text-xl"><%= idea.title %></h1>
+      <p><%= idea.content %></p>
+      <% if idea.project == true %>
+        <p><%= idea.project_type %><p>
+      <% end %>
+    </div>
+    <div >
+      <%= link_to(content_tag(:i, nil, class: 'far fa-edit'), edit_idea_path(idea)) %>
+      <%= link_to idea_path(idea), method: :delete, data: { confirm: "Êtes-vous sûr?" } do %>
+        <i class="far fa-trash-alt destroy_idea"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<div class="text-right mx-40">
+  <%= link_to 'Nouvelle idée ?', new_idea_path %>
+</div>

@@ -15,11 +15,21 @@
 @import "pages/index";
 @import "components/navbar";
 @import "components/list";
+
 a {
   text-decoration: none;
+  font-family: 'Ubuntu', sans-serif;
 }
 
-// a:hover{
-//   text-decoration: none;
-//   color: white;
-// }
+a:hover{
+  text-decoration: none;
+  color: $gray-2;
+}
+
+h1 {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+p {
+  font-family: 'Ubuntu', sans-serif;
+}

@@ -2,20 +2,20 @@
   <h1 class="text-xl font-medium text-center">Nos listes :</h1>
 </div>
 
-  <ul>
-    <% @lists.each do |list| %>
-      <li>
-        <td><%= list.title %></td>
-
-        <td><%= link_to 'Voir la liste', list %></td>
-        <%= link_to(content_tag(:i, nil, class: 'far fa-edit'), edit_list_path(list)) %>
-        <%= link_to list_path(list), method: :delete, data: { confirm: "Êtes-vous sûr?" } do %>
-          <i class="far fa-trash-alt destroy_list"></i>
-        <% end %>
-    </li>
-    <% end %>
-  </ul>
-
-
-
-<%= link_to 'Ajouter une liste', new_list_path %>
+<% @lists.each do |list| %>
+  <div class="flex bg-white py-3 px-6 mx-40 rounded shadow my-4">
+    <div class=" flex-auto pr-16">
+      <h1 class="text-xl"><%= list.title %></h1>
+      <p><%= link_to 'Voir la liste', list %></p>
+    </div>
+    <div >
+      <%= link_to(content_tag(:i, nil, class: 'far fa-edit'), edit_list_path(list)) %>
+      <%= link_to list_path(list), method: :delete, data: { confirm: "Êtes-vous sûr?" } do %>
+        <i class="far fa-trash-alt destroy_list"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<div class="text-right mx-40">
+  <%= link_to 'Ajouter une liste', new_list_path %>
+</div>
