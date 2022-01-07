@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show, :edit, :update, :new, :create]
-  root to: 'pages#home'
+
+  get 'home', to: 'pages#home'
+  get 'calendar', to: 'pages#calendar'
 
   resources :tasks
   resources :lists do

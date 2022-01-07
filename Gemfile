@@ -35,6 +35,7 @@ gem 'faker'
 gem 'devise'
 gem 'cloudinary', '~> 1.16.0'
 gem "simple_calendar", "~> 2.4"
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'pry-byebug'

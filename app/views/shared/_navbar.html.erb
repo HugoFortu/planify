@@ -13,7 +13,7 @@
       <ul class="space-y-8 pt-10 px-4">
         <li class="flex space-x-4 items-center active:textColor-white-700">
           <ion-icon name="grid-outline"></ion-icon>
-          <%= link_to "Accueil", root_path, id: "nav" %>
+          <%= link_to "Accueil", home_path, id: "nav" %>
         </li>
         <li class="flex space-x-4 items-center">
           <ion-icon name="list-outline"></ion-icon>
@@ -29,15 +29,15 @@
         </li>
         <li class="flex space-x-4 items-center">
           <ion-icon name="calendar-outline"></ion-icon>
-          <%= link_to "Planning", root_path, id: "nav" %>
+          <%= link_to "Planning", calendar_path, id: "nav" %>
         </li>
         <li class="flex space-x-4 items-center">
           <ion-icon name="chatbubbles-outline"></ion-icon>
-          <%= link_to "Messages", root_path, id: "nav" %>
+          <%= link_to "Messages", home_path, id: "nav" %>
         </li>
         <li class="flex space-x-4 items-center">
           <ion-icon name="settings-outline"></ion-icon>
-          <%= link_to "Paramètres", root_path, id: "nav" %>
+          <%= link_to "Paramètres", home_path, id: "nav" %>
         </li>
         <li>
           <%= link_to "Sign in", new_user_session_path %>
