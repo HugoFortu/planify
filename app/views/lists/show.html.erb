@@ -1,15 +1,21 @@
-<div class="">
-  <div class=" pb-6 mx-auto">
-    <h1 class="text-xl font-medium text-center"><%= @list.title %></h1>
-  </div>
-  <div class="flex bg-white rounded-xl container-list mx-40" data-controller="list" >
-      <%= render "checklist", list: @list, element: @element %>
-    <div class="mx-auto my-auto">
-      <%= render "elements/new", list: @list, element: @element %>
-      <br>
-      <%= link_to 'Retour', lists_path %>
+<div class=" pb-6 mx-auto">
+  <h1 class="text-xl font-medium text-center"><%= @list.title %></h1>
+</div>
+<div class="flex bg-white rounded-xl container-list mx-40">
+  <div class="mx-auto py-6 ">
+    <% elements_sorted = @elements.sort_by  { |element| element.checked ? 1 : 0 }%>
+    <% elements_sorted.each do |element| %>
+    <div id= "checklist"  data-controller="list" data-list-update-url="<%= list_element_path(@list, element) %>">
+      <input id="<%= element.id %>" type="checkbox" name="r"  class="check" data-action="list#updateElement"
+      data-list-target="checked"
+      <% if element.checked %> checked <% end %> >
+      <label id="<%= element.id%>" for="<%= element.id%>" ><%= element.quantity %>        <%= element.name %></label>
     </div>
+    <% end %>
+  </div>
+  <div class="mx-auto my-auto">
+    <%= render "elements/new", list: @list, element: @element %>
+    <br>
+    <%= link_to 'Retour', lists_path %>
   </div>
 </div>
-
-

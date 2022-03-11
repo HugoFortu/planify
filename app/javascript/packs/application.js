@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "../application.css";
+import "controllers"
 
 
 Rails.start()
@@ -32,4 +33,3 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 });
 
-import "controllers"

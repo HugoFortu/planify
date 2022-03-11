@@ -1,7 +1,12 @@
 class ElementsController < ApplicationController
+  before_action :set_element, only: %i[ show edit update destroy ]
+
   def new
     @list = List.find(params[:list_id])
     @element = Element.new
+  end
+
+  def edit
   end
 
   def create
@@ -16,26 +21,27 @@ class ElementsController < ApplicationController
   end
 
   def destroy
-    @element = Element.find(params[:id])
     @element.destroy
     redirect_to list_path(@element.list)
   end
 
   def update
-    binding.pry
-    @element = Element.find(params[])
-    @element.update(checked: params[:checked])
-
+    @element = Element.find(params[:id])
+    @element.update(element_params)
+    @element.save
     respond_to do |format|
-      format.html
-      format.text { render partial: 'candidates/candidates_table', locals: { element: @element }, formats: [:html] }
+      format.js
     end
-
   end
+
 
   private
 
+  def set_element
+    @element = Element.find(params[:id])
+  end
+
   def element_params
-    params.require(:element).permit(:name, :quantity)
+    params.require(:element).permit(:name, :quantity, :checked)
   end
 end
