@@ -175,3 +175,21 @@
   }
 }
 
+.slider {
+    position: relative;
+    height: 75vh;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    overflow-y: auto;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    scroll-snap-type: mandatory;
+    scroll-snap-type: y mandatory;
+    scroll-snap-points-y: repeat(75vh);
+
+    perspective: 1px;
+  }
+
+

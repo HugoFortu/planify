@@ -2,7 +2,7 @@
   <h1 class="text-xl font-medium text-center"><%= @list.title %></h1>
 </div>
 <div class="flex bg-white rounded-xl container-list mx-40">
-  <div class="mx-auto py-6 ">
+  <div class="mx-auto py-6 slider">
     <% elements_sorted = @elements.sort_by  { |element| element.checked ? 1 : 0 }%>
     <% elements_sorted.each do |element| %>
     <div id= "checklist"  data-controller="list" data-list-update-url="<%= list_element_path(@list, element) %>">

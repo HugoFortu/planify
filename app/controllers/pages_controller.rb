@@ -8,6 +8,5 @@ class PagesController < ApplicationController
   end
 
   def calendar
-
   end
 end
